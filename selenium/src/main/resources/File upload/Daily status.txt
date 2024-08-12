@@ -1,0 +1,65 @@
+
+*Work Status*(26/07/2024 Friday)
+
+
+*Basil*
+
+
+Poetroll test reports corrections and adding screenshots for better understanding-0%
+QHSE reports for KSA from Janauary to June as per Mail from QHSE team-0%
+Aimri LMS usecase and project plan checking-0%
+Aimri u.a.e changes testing-0%
+
+
+*Krishnendhu* - 
+
+Effism 1.5 time section Testing-25%
+Effism 1.5 certificate module retesting-90%
+Effism 1.5 certificate module data entry-0%
+shiptek mumbai updations testing
+Video profile uploading to uploader-0%
+Ariesdm Testing Updation-0%
+
+
+
+
+*Leeba*
+EFFISM 1.5  health module updations - 90%
+EFFISM 1.5  recruitment module : role setting - 0%
+EFFISM 1.5 recruitment module : remarks setting for candidate status update - 0%
+EFFISM 1.5 : appreciation for selected best employee making live - 0%
+EFFISM 1.5 complaint register : session check before action - 0%
+
+*Anagha* 
+Marine Certification Download option setting for Marksheet(0%)
+Marine Certification  Notification popup setting for External Certificate Expiry(0%)
+Marine Certification Educational document Download option setting in listing page for Aimri NDT, Client NDT and Aries Employee(0%)
+
+
+
+*Nandhu*
+
+
+
+Shiptek 2025 New website Design -30%
+DIMS sponsor updations-0%
+shiptek mumbai speaker updations-0%
+
+
+
+
+
+*Raoof*
+EFFISM 1.5 - Daily Audit Page Redesign : 0%
+EFFISM 1.5 - Monthly Audit Page Redesign : 0%
+
+
+*Neha*-
+
+Aimri site u.a.e new updations -0%
+Ariesdm website updations-0%
+IMC index page bug fixing-0%
+
+
+
+

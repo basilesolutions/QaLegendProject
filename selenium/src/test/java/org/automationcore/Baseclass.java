@@ -14,6 +14,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 public class Baseclass {
 	public WebDriver driver;
@@ -34,11 +35,14 @@ public class Baseclass {
 			
 		}
 		driver.manage().window().maximize();
+		//driver.get("");
 	}
 	@BeforeMethod
-	public void setBrowser() {
+	@Parameters("browser")
+	
+	public void setBrowser(String browserName) {
 		
-		intializeBrowser("Chrome");
+		intializeBrowser(browserName);
 	}
 	
 	@AfterMethod
@@ -50,7 +54,7 @@ public class Baseclass {
 		}
 		
 			
-		//driver.close();
+		driver.close();
 		
 	}
 	public void takeScreenshot(ITestResult result) throws IOException {

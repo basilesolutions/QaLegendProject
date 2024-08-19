@@ -9,19 +9,25 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import utilities.ExcelUtility;
+import utilities.RandomDataUtility;
 
 public class RegisterPageTest extends Baseclass {
 	
 	@Test
-	public void verifyUserRegistration() throws IOException {
+	public void verifyUserRegistration()  {
 		
 		driver.get("https://demowebshop.tricentis.com/login");
 		
-		String name=ExcelUtility.getStringData(0, 0, "RegisterPage");
-		String lastname=ExcelUtility.getStringData(0, 1, "RegisterPage");
-		String password=ExcelUtility.getIntegerData(0, 2, "RegisterPage");
-		String email=ExcelUtility.getStringData(0, 4, "RegisterPage");
+		//String name=ExcelUtility.getStringData(0, 0, "RegisterPage");
+		//String lastname=ExcelUtility.getStringData(0, 1, "RegisterPage");
+		//String password=ExcelUtility.getIntegerData(0, 2, "RegisterPage");
+		//String email=ExcelUtility.getStringData(0, 4, "RegisterPage");
 		String message=ExcelUtility.getStringData(0, 3, "RegisterPage");
+		
+		String firstName=RandomDataUtility.getFirstName();
+		String lastName=RandomDataUtility.getLastName();
+		String emailID=firstName+"."+lastName+"@yahoo.com";
+		String password=firstName+"@"+lastName;
 		
 		WebElement register=driver.findElement(By.xpath("//input[@class='button-1 register-button']"));
 		register.click();
@@ -30,11 +36,11 @@ public class RegisterPageTest extends Baseclass {
 		
 		
 		WebElement namefield=driver.findElement(By.xpath("//input[@id='FirstName']"));
-		namefield.sendKeys(name);
+		namefield.sendKeys(firstName);
 		WebElement  lastNamefield=driver.findElement(By.xpath("//input[@id='LastName']"));
-		lastNamefield.sendKeys(lastname);
+		lastNamefield.sendKeys(lastName);
 		WebElement  emailfield=driver.findElement(By.xpath("//input[@id='Email']"));
-		emailfield.sendKeys(email);
+		emailfield.sendKeys(emailID);
 		WebElement  passwordfield=driver.findElement(By.xpath("//input[@id='Password']"));
 		passwordfield.sendKeys(password);
 		WebElement  confirmpassword=driver.findElement(By.xpath("//input[@id='ConfirmPassword']"));
@@ -51,5 +57,7 @@ public class RegisterPageTest extends Baseclass {
 		//Assert.assertEquals(actualEMail, expectedEmail,"Inavlid Email id");
 		
 	}
+	
+	
 
 }

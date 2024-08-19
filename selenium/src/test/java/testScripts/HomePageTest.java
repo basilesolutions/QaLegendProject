@@ -10,12 +10,13 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import listeners.RetryAnalyzer;
 import utilities.ExcelUtility;
 
 public class HomePageTest extends Baseclass {
 	
-	@Test
-	public void verifyHomePageTitle() throws IOException {
+	@Test(retryAnalyzer = RetryAnalyzer.class)
+	public void verifyHomePageTitle()  {
 		
 		driver.get("https://demowebshop.tricentis.com/");
 		String titleTag=ExcelUtility.getStringData(0, 0, "HomePage");
@@ -26,9 +27,10 @@ public class HomePageTest extends Baseclass {
 		
 		
 		
+		
 	}
 	@Test
-	public void verifyCommunityPollSelection() throws IOException {
+	public void verifyCommunityPollSelection()  {
 		driver.get("https://demowebshop.tricentis.com/");
 		String selection=ExcelUtility.getStringData(1, 0, "HomePage");
 		List<WebElement> polllist=driver.findElements(By.xpath("//li[@class='answer']"));

@@ -9,6 +9,8 @@ import org.testng.annotations.Test;
 
 import automationCore.BaseClass;
 import dataProvider.DataProviders;
+import pageObject.HomePage;
+import pageObject.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginPageTest extends BaseClass {
@@ -19,17 +21,23 @@ public class LoginPageTest extends BaseClass {
 		String userName = ExcelUtility.getStringData(0, 0, "LoginScreen");
 		String password = ExcelUtility.getIntegerData(0, 1, "LoginScreen");
 		String finalMessage = ExcelUtility.getStringData(1, 0, "LoginScreen");
+        LoginPage login=new LoginPage(driver);
+        login.enterUsername(userName);
+        login.enterPassword(password);
+        HomePage home=login.submitButton();
+        String actualText=home.getLoginText();
+        Assert.assertEquals(actualText, finalMessage);
+		
+		//WebElement userNameField = driver.findElement(By.xpath("//input[@id='username']"));
+		//userNameField.sendKeys(userName);
+		//WebElement passwordFeild = driver.findElement(By.xpath("//input[@id='password']"));
+		//passwordFeild.sendKeys(password);
+		//WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
+		//loginButton.click();
 
-		WebElement userNameField = driver.findElement(By.xpath("//input[@id='username']"));
-		userNameField.sendKeys(userName);
-		WebElement passwordFeild = driver.findElement(By.xpath("//input[@id='password']"));
-		passwordFeild.sendKeys(password);
-		WebElement loginButton = driver.findElement(By.xpath("//button[@type='submit']"));
-		loginButton.click();
-
-		WebElement welcomeMessage = driver.findElement(By.xpath("//h1[contains(text(), 'Welcome Admin')]"));
-		String message = welcomeMessage.getText();
-		Assert.assertEquals(finalMessage, message, "Admin  not logged in Successfully");
+		//WebElement welcomeMessage = driver.findElement(By.xpath("//h1[contains(text(), 'Welcome Admin')]"));
+		//String message = welcomeMessage.getText();
+		//Assert.assertEquals(finalMessage, message, "Admin  not logged in Successfully");
 
 	}
 

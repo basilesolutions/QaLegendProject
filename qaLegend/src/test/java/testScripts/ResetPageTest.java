@@ -8,9 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationCore.BaseClass;
+import pageObject.LoginPage;
+import pageObject.ResetPage;
 import utilities.ExcelUtility;
 
-public class ResetPage extends BaseClass{
+public class ResetPageTest extends BaseClass{
 	
 	@Test
 	
@@ -19,16 +21,25 @@ public class ResetPage extends BaseClass{
 		String email =ExcelUtility.getStringData(0, 0, "ResetScreen");
 		String confirmMessage =ExcelUtility.getStringData(1, 0, "ResetScreen");
 		
-		WebElement forgotClick=driver.findElement(By.xpath("//a[@class='btn btn-link']"));
-		forgotClick.click();
-		WebElement emailField=driver.findElement(By.xpath("//input[@id='email']"));
-		emailField.sendKeys(email);
-		WebElement passwordResetButton=driver.findElement(By.xpath("//button[@class='btn btn-primary']"));
-		passwordResetButton.click();
+		//WebElement forgotClick=driver.findElement(By.xpath("//a[@class='btn btn-link']"));
+		//forgotClick.click();
+		//WebElement emailField=driver.findElement(By.xpath("//input[@id='email']"));
+		//emailField.sendKeys(email);
+		//WebElement passwordResetButton=driver.findElement(By.xpath("//button[@class='btn btn-primary']"));
+		//passwordResetButton.click();
+		LoginPage login =new LoginPage(driver);
 		
-		WebElement resetMessage=driver.findElement(By.xpath("//div[@class='alert alert-success']"));
-		String finalmessage=resetMessage.getText();
-		Assert.assertEquals(finalmessage, confirmMessage, "Not working");
+		ResetPage reset=login.forgotPasswordButton();
+		reset.enterForgotPasswordEmail(email);
+		reset.sendPasswordResetButton();
+		String successMessage=reset.getText();
+		Assert.assertEquals(successMessage, confirmMessage);
+		
+		
+		
+		//WebElement resetMessage=driver.findElement(By.xpath("//div[@class='alert alert-success']"));
+		//String finalmessage=resetMessage.getText();
+		//Assert.assertEquals(finalmessage, confirmMessage, "Not working");
 		
 	}
 	

@@ -5,16 +5,11 @@
   <test thread-count="5" name="Test">
 	<parameter name="browser" value="Chrome"></parameter>
     <classes>
-      <class name="testScripts.HomePageTest">
-		<methods>
-			<include name="verifyHomePageTitle"></include>
-			<exclude name="verifyCommunityPollSelection"></exclude>
-			
-			
-		</methods>
+      <class name="testSripts.HomePageTest">
+		
       </class>
-     <class name="testScripts.LoginPageTest"/>
-      <class name="testScripts.RegisterPageTest"/>
+     <class name="testScripts.AddUserPageTest"/>
+      <class name="testScripts.ResetPageTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

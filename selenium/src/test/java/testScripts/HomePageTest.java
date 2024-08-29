@@ -15,21 +15,22 @@ import utilities.ExcelUtility;
 
 public class HomePageTest extends Baseclass {
 	
-	@Test(retryAnalyzer = RetryAnalyzer.class)
+	//@Test(retryAnalyzer = RetryAnalyzer.class)
+	@Test(groups ="smoke" )
 	public void verifyHomePageTitle()  {
 		
 		driver.get("https://demowebshop.tricentis.com/");
 		String titleTag=ExcelUtility.getStringData(0, 0, "HomePage");
 		String title = driver.getTitle();
 		System.out.println("Title is;"+""+ title);
-		String expectedTitle=titleTag;
+		String expectedTitle="test";
 		Assert.assertEquals(title, expectedTitle,"Title Mismatch");
 		
 		
 		
 		
 	}
-	@Test
+	@Test(groups = "sanity")
 	public void verifyCommunityPollSelection()  {
 		driver.get("https://demowebshop.tricentis.com/");
 		String selection=ExcelUtility.getStringData(1, 0, "HomePage");

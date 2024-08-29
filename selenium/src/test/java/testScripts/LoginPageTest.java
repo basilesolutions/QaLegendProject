@@ -14,7 +14,7 @@ import utilities.ExcelUtility;
 public class LoginPageTest extends Baseclass {
 	
 	
-	@Test
+	@Test(groups = {"smoke","regression"})
 	public void userLoginWithValidCredentials()  {
 		
 		driver.get("https://demowebshop.tricentis.com/login");

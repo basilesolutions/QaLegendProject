@@ -37,7 +37,7 @@ public class Baseclass {
 		driver.manage().window().maximize();
 		//driver.get("");
 	}
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	@Parameters("browser")
 	
 	public void setBrowser(String browserName) {
@@ -45,7 +45,7 @@ public class Baseclass {
 		intializeBrowser(browserName);
 	}
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void closeBrowser(ITestResult result) throws IOException {
 		if(result.getStatus() ==ITestResult.FAILURE)
 		{

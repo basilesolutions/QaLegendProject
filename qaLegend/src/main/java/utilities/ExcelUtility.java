@@ -8,7 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import Constants.Constants;
+import constants.Constants;
 
 public class ExcelUtility {
 	static FileInputStream file;
@@ -16,8 +16,8 @@ public class ExcelUtility {
 	static XSSFSheet sh;
 	public static String getStringData(int row,int col,String sheet)  {
 		try {
-		//String path =Constants.HOME_DIRECTORY+Constants.TESTDATA_EXCELPATH;
-		file = new FileInputStream("C:\\Users\\Basil\\git\\Selenium_Learning\\qaLegend\\src\\test\\resources\\DataFile.xlsx");
+		String path =Constants.HOME_DIRECTORY+Constants.TESTDATA_EXCELPATH;
+		file = new FileInputStream(path);
 		workbook =new XSSFWorkbook(file);
 		sh= workbook.getSheet(sheet);
 		XSSFRow r = sh.getRow(row);
@@ -33,8 +33,8 @@ public class ExcelUtility {
 public static String getIntegerData(int row,int col,String sheet)  {
 	try {
 		
-	
-		file = new FileInputStream("C:\\Users\\Basil\\git\\Selenium_Learning\\qaLegend\\src\\test\\resources\\DataFile.xlsx");
+	   String path=Constants.HOME_DIRECTORY+Constants.TESTDATA_EXCELPATH;
+		file = new FileInputStream(path);
 		workbook =new XSSFWorkbook(file);
 		sh= workbook.getSheet(sheet);
 		XSSFRow r = sh.getRow(row);

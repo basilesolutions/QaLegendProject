@@ -1,9 +1,13 @@
 package automationCore;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.hpsf.Property;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +18,29 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import constants.Constants;
+
 public class BaseClass {
 	
 	public WebDriver driver;
+	public FileInputStream file;
+	public Properties property;
 	
 	public void intializeBrowser(String browser) {
+		try {
+			file=new FileInputStream(Constants.CONFIG_FILE);
+			property = new Properties();
+			try {
+				property.load(file);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		if(browser.equals("Chrome")) {
 			driver=new ChromeDriver();
 		}
@@ -35,7 +57,9 @@ public class BaseClass {
 			
 		}
 		driver.manage().window().maximize();
-		driver.get("https://qalegend.com/billing/public/login");
+		//driver.get("https://qalegend.com/billing/public/login");
+		driver.get(property.getProperty("url"));
+		
 	}
 	@BeforeMethod
 	public void setBrowser() {

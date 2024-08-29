@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import automationCore.BaseClass;
+import constants.Constants;
 import dataProvider.DataProviders;
 import pageObject.HomePage;
 import pageObject.LoginPage;
@@ -16,11 +17,11 @@ import utilities.ExcelUtility;
 public class LoginPageTest extends BaseClass {
 
 	@Test
-	public void verifyLoginWithValidCredentials() throws IOException {
+	public void verifyLoginWithValidCredentials() {
 
-		String userName = ExcelUtility.getStringData(0, 0, "LoginScreen");
-		String password = ExcelUtility.getIntegerData(0, 1, "LoginScreen");
-		String finalMessage = ExcelUtility.getStringData(1, 0, "LoginScreen");
+		String userName = ExcelUtility.getStringData(0, 0, Constants.LOGIN_PAGE);
+		String password = ExcelUtility.getIntegerData(0, 1, Constants.LOGIN_PAGE);
+		String finalMessage = ExcelUtility.getStringData(1, 0, Constants.LOGIN_PAGE);
         LoginPage login=new LoginPage(driver);
         login.enterUsername(userName);
         login.enterPassword(password);
@@ -42,7 +43,7 @@ public class LoginPageTest extends BaseClass {
 	}
 
 	@Test
-	public void verifyLoginErrorMessageWithInvalidCredentials() throws IOException {
+	public void verifyLoginErrorMessageWithInvalidCredentials() {
 
 		String userName = ExcelUtility.getStringData(2, 0, "LoginScreen");
 		String password = ExcelUtility.getIntegerData(2, 1, "LoginScreen");

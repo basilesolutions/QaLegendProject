@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+<listeners>
+		<listener class-name="listeners.AnnotationTransformer"></listener>
+	<!-- 	<listener class-name="listeners.ExtendListeners"></listener>-->
+	</listeners>
+    <test thread-count="5" name="ChromeTest">
+        <parameter name="browser" value="Chrome"></parameter>
+        <classes>
+            <class name="testScripts.AddUserPageTest">
+                <methods>
+                    <include name="verifyAddUser"></include>
+                   <exclude name="verifyUserLoginWithNewlyAddedUser"></exclude>
+                </methods>
+            </class>
+            </classes>
+    </test>
+    <test thread-count="5" name="EdgeTest">
+        <parameter name="browser" value="Edge"></parameter>
+        <classes>
+            <class name="testScripts.LoginPageTest" />
+             
+        </classes>
+    </test>
+    <test thread-count="5" name="FirefoxTest">
+        <parameter name="browser" value="FireFox"></parameter>
+        <classes>
+            <class name="testScripts.UserProfileTest" />
+        </classes>
+    </test>
+</suite>

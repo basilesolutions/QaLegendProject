@@ -15,22 +15,6 @@ public class AddUserPage {
 		PageFactory.initElements(driver, this);
 	}
 	 
-	// @FindBy(xpath = "//span[@class='pull-right-container']")
-	 //WebElement userManagementdropdown;
-	 //@FindBy(xpath = "/html/body/div[2]/aside/section/ul/li[2]/ul/li[1]/a/span")
-	 //WebElement userDropDown;
-
-	/*
-	 * @FindBy(id = "username") WebElement usernamefield;
-	 * 
-	 * @FindBy(id = "password") WebElement passwordfield;
-	 * 
-	 * @FindBy(xpath = "//button[@type='submit']") WebElement submitButton;
-	 */
-	@FindBy(xpath = "//span[@class='pull-right-container']")
-	WebElement mainDropDown;
-	@FindBy(xpath = "//span[@class='title' and contains(text(),'Users')]")  
-	WebElement userDropdown;
 	@FindBy(xpath = "//a[@class='btn btn-block btn-primary']")
 	WebElement addUserButton;
 	@FindBy(xpath = "//input[@id='surname']")
@@ -54,33 +38,6 @@ public class AddUserPage {
 	@FindBy(xpath = "//button[@id='submit_user_button']")
 	WebElement submitClick;
 	
-	
-	
-	/*
-	 * public void enterUsername(String userName) {
-	 * usernamefield.sendKeys(userName);
-	 * 
-	 * }
-	 * 
-	 * public void enterPassword(String password) {
-	 * passwordfield.sendKeys(password);
-	 * 
-	 * }
-	 * 
-	 * public void clickSubmitButton() { submitButton.click();
-	 * 
-	 * }
-	 */
-
-	public void clickMainDropDown() {
-		mainDropDown.click();
-
-	}
-
-	public void clickUserDropdown() {
-		userDropdown.click();
-	}
-
 	public void clickAdduserButton() {
      addUserButton.click();
 	}
@@ -123,7 +80,8 @@ public class AddUserPage {
 		commision.sendKeys(commission);
 			
 	}
-	public void clickSubmit() {
+	public HomePage clickSubmit() {
 		submitClick.click();
+		return new HomePage(driver);
 	}
 }

@@ -6,8 +6,8 @@
       <class name="testScripts.AddUserPageTest">
         <methods>
           <include name="setBrowser"/>
+          <include name="verifyUserLoginWithNewlyAddedUser"/>
           <include name="closeBrowser"/>
-          <include name="verifyAddUser"/>
         </methods>
       </class> <!-- testScripts.AddUserPageTest -->
     </classes>

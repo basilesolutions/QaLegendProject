@@ -25,7 +25,7 @@ public class ExcelUtility {
 		return c.getStringCellValue();
 		} catch (Exception e ) {
 			
-			throw new RuntimeException("Excel Sheet not found");
+			throw new RuntimeException("Excel Sheet not found in disk");
 		}
 	}
 

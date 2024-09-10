@@ -29,7 +29,7 @@ public class HomePage {
 	WebElement clickTourButton;
 	@FindBy(xpath = "//a[@class='dropdown-toggle']")
 	WebElement adminButton;
-	@FindBy(xpath = "//a[text()='Profile']")
+	@FindBy(xpath = "//div[@class='pull-left']//a")
 	WebElement profileButton;
 	@FindBy(xpath = "//span[@class='pull-right-container']")
 	WebElement mainDropDown;

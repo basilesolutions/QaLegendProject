@@ -111,7 +111,7 @@ public class AddUserPageTest extends BaseClass {
 		login.enterPassword(password);
 		login.submitButton();
 		String messageForLoggedUser = home.WelcomemessageForUserLogin();
-		Assert.assertEquals(messageForLoggedUser, expectedwelcomemessagefield, Messages.USER_CREATION_FAIL_MESSAGE);
+		Assert.assertEquals(messageForLoggedUser, expectedwelcomemessagefield, Messages.USER_LOGIN_FAIL_MESSAGE);
 	}
 
 }

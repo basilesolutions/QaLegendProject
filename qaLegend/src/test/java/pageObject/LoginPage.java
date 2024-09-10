@@ -19,6 +19,8 @@ public class LoginPage {
 	WebElement passwordfield;
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement submitButton;
+	@FindBy(xpath = "//span[@class='help-block']")
+	WebElement errorMessage;
 	@FindBy(xpath ="//a[@class='btn btn-link']")
 	WebElement forgotPasswordButton;
 	
@@ -38,6 +40,11 @@ public class LoginPage {
 	public HomePage submitButton() {
 		submitButton.click();
 		return new HomePage(driver);
+		
+	}
+	public String getInvalidMessage() {
+		submitButton.click();
+		return errorMessage.getText();
 		
 	}
 	public ResetPage forgotPasswordButton() {

@@ -24,6 +24,7 @@
           <include name="setBrowser"/>
           <include name="verifyLoginWithValidCredentials"/>
           <include name="closeBrowser"/>
+          <include name="InvalidDataDataProvider" invocation-numbers="2"/>
         </methods>
       </class> <!-- testScripts.LoginPageTest -->
     </classes>

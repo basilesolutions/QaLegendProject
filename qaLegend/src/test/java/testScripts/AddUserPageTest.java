@@ -24,7 +24,7 @@ import utilities.RandomDataUtility;
 
 public class AddUserPageTest extends BaseClass {
 
-	@Test(groups="Sanity")
+	@Test(groups = "Sanity")
 	public void verifyAddUser() {
 
 		String userName = ExcelUtility.getStringData(0, 0, Constants.LOGIN_PAGE);
@@ -64,7 +64,8 @@ public class AddUserPageTest extends BaseClass {
 		Assert.assertEquals(successMessage, Messages.USERADDEDSUCCESS, Messages.USERADDFAIL);
 
 	}
-@Test(groups="Smoke")
+
+	@Test(groups = "Smoke")
 	public void verifyUserLoginWithNewlyAddedUser() {
 
 		String userName = ExcelUtility.getStringData(0, 0, Constants.LOGIN_PAGE);
@@ -79,7 +80,8 @@ public class AddUserPageTest extends BaseClass {
 		String admin = firstName + "123";
 
 		String userPassword = firstName + "@" + lastName;
-		String expectedwelcomemessagefield = Constants.EXPECTED_MESSAGE_PREFIX+ " " + firstName + Constants.EXPECTED_MESSAGE_SUFFIX;
+		String expectedwelcomemessagefield = Constants.EXPECTED_MESSAGE_PREFIX + " " + firstName
+				+ Constants.EXPECTED_MESSAGE_SUFFIX;
 		String salesPercent = ExcelUtility.getIntegerData(6, 0, Constants.ADD_PAGE);
 
 		LoginPage login = new LoginPage(driver);
@@ -106,10 +108,10 @@ public class AddUserPageTest extends BaseClass {
 		home.clickAdmin();
 		home.clickLogOut();
 		login.enterUsername(admin);
-		login.enterPassword(userPassword);
+		login.enterPassword(password);
 		login.submitButton();
-		String messageForLoggedUser=home.WelcomemessageForUserLogin();
-		Assert.assertEquals(messageForLoggedUser,expectedwelcomemessagefield,Messages.USER_CREATION_FAIL_MESSAGE);
+		String messageForLoggedUser = home.WelcomemessageForUserLogin();
+		Assert.assertEquals(messageForLoggedUser, expectedwelcomemessagefield, Messages.USER_CREATION_FAIL_MESSAGE);
 	}
 
 }

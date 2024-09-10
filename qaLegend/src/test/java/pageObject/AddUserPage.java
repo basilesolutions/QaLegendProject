@@ -9,12 +9,11 @@ public class AddUserPage {
 
 	WebDriver driver;
 
-	 public AddUserPage(WebDriver driver)
-	{
-		this.driver=driver;
+	public AddUserPage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	 
+
 	@FindBy(xpath = "//a[@class='btn btn-block btn-primary']")
 	WebElement addUserButton;
 	@FindBy(xpath = "//input[@id='surname']")
@@ -25,7 +24,7 @@ public class AddUserPage {
 	WebElement lastName;
 	@FindBy(xpath = "//input[@name='email']")
 	WebElement email;
-	@FindBy(xpath = "//span[@id='select2-role-container']") 
+	@FindBy(xpath = "//span[@id='select2-role-container']")
 	WebElement roleDropDown;
 	@FindBy(xpath = "//input[@id='username']")
 	WebElement usernameForLogin;
@@ -37,49 +36,56 @@ public class AddUserPage {
 	WebElement commision;
 	@FindBy(xpath = "//button[@id='submit_user_button']")
 	WebElement submitClick;
-	
+
 	public void clickAdduserButton() {
-     addUserButton.click();
+		addUserButton.click();
 	}
 
 	public void enterPrefix(String prefix) {
 		prefixfield.sendKeys(prefix);
-		
+
 	}
+
 	public void enterFirstName(String firstname) {
 		firstName.sendKeys(firstname);
-		
+
 	}
+
 	public void enterLastName(String lastname) {
 		lastName.sendKeys(lastname);
-		
+
 	}
+
 	public void enterEmail(String Email) {
 		email.sendKeys(Email);
-		
+
 	}
+
 	public void selectRoleDropDown(String role) {
 		roleDropDown.sendKeys(role);
-		
+
 	}
+
 	public void enterUserName(String username) {
 		usernameForLogin.sendKeys(username);
-		
+
 	}
+
 	public void enterPasswordForLogin(String password) {
 		passwordForLogin.sendKeys(password);
-		
-		
+
 	}
+
 	public void enterConfirmPassword(String password) {
 		confirmPassword.sendKeys(password);
-		
-		
+
 	}
+
 	public void enterCommision(String commission) {
 		commision.sendKeys(commission);
-			
+
 	}
+
 	public HomePage clickSubmit() {
 		submitClick.click();
 		return new HomePage(driver);
